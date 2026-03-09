@@ -1,0 +1,191 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Projects | Sookun Deevesh</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;600;700;800&family=Sora:wght@500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <header class="subpage-header">
+      <nav class="nav">
+        <a class="brand" href="index.html">Sookun Deevesh</a>
+        <button class="menu-toggle" aria-label="Toggle menu">Menu</button>
+        <ul class="nav-links">
+          <li><a href="index.html">Home</a></li>
+          <li><a href="about.html">About</a></li>
+          <li><a href="skills.html">Skills</a></li>
+          <li><a class="active" href="projects.html">Projects</a></li>
+          <li><a href="education.html">Education</a></li>
+          <li>
+            <a class="nav-cv-btn" href="Sookun_Deevesh_CV.pdf" download
+              >Download CV</a
+            >
+          </li>
+          <li><a href="contact.html">Contact</a></li>
+        </ul>
+      </nav>
+    </header>
+
+    <main class="section reveal">
+      <h1>Projects</h1>
+      <article class="card capstone-card">
+        <p class="project-tag">Final Year Capstone 2026 - Blockchain and FinTech</p>
+        <h2>Cryptotrade - Cryptocurrency Trading Platform</h2>
+        <p>
+          Cryptotrade is a production-oriented simulation platform designed to
+          train users in realistic crypto trading workflows without financial
+          risk. It combines real-time market data, security controls, and an
+          exchange-style user experience.
+        </p>
+        <p class="meta">
+          <strong>Student:</strong> Sookun Deevesh |
+          <strong>Programme:</strong> BSc (Hons) Computer Science with Network Security |
+          <strong>Supervisor:</strong> Sandya Armoogum
+        </p>
+        <p class="source-link">
+          Live Demo:
+          <a href="https://crypto-trade-fyp.vercel.app" target="_blank" rel="noopener noreferrer">
+            Open Cryptotrade
+          </a>
+        </p>
+        <figure class="capstone-media">
+          <img
+            class="capstone-image"
+            src="cryptotrade-preview.png"
+            alt="Cryptotrade platform homepage preview"
+            loading="lazy"
+          />
+          <figcaption>
+            Homepage preview of the Cryptotrade platform.
+          </figcaption>
+        </figure>
+
+        <h3>Problem and Motivation</h3>
+        <ul>
+          <li>Beginners face financial loss when learning directly on live exchanges</li>
+          <li>Most learning platforms are simplified and do not mirror real trading environments</li>
+          <li>There is a gap between classroom learning and real-world trading readiness</li>
+        </ul>
+
+        <h3>Project Objectives</h3>
+        <div class="project-feature-grid">
+          <div class="project-pill">Implement secure JWT authentication and protected routes</div>
+          <div class="project-pill">Integrate live market feeds through CoinGecko API</div>
+          <div class="project-pill">Provide virtual wallet and portfolio tracking</div>
+          <div class="project-pill">Support multiple trading modes for practical learning</div>
+          <div class="project-pill">Add KYC flow with document upload and capture</div>
+          <div class="project-pill">Apply OTP verification for sensitive operations</div>
+        </div>
+
+        <h3>Scope</h3>
+        <p><strong>In scope:</strong> authentication, dashboard, markets, trading modules, wallet simulation, KYC, OTP, and history logs.</p>
+        <p><strong>Out of scope:</strong> real blockchain settlement, full legal compliance stack, payment gateways, and native mobile apps.</p>
+
+        <h3>Architecture and Technology Stack</h3>
+        <ul>
+          <li><strong>Frontend:</strong> React 18+, Vite, React Router v6</li>
+          <li><strong>Backend:</strong> Node.js, Express.js, REST API design</li>
+          <li><strong>Database:</strong> MongoDB Atlas</li>
+          <li><strong>Real-time:</strong> Socket.IO for live market updates</li>
+          <li><strong>Services:</strong> CoinGecko API, Gmail SMTP, Twilio SMS</li>
+        </ul>
+
+        <h3>Core Features Delivered</h3>
+        <ul>
+          <li>6 public pages and 7 protected pages with authenticated access control</li>
+          <li>7 trading modes including Spot, Futures, Margin, Options, Convert, Staking, and Grid/Bot</li>
+          <li>Virtual deposit and withdrawal simulation with OTP confirmation</li>
+          <li>KYC workflow with admin review and status tracking from Pending to Approved/Rejected</li>
+          <li>Transaction history, activity logs, and real-time notifications</li>
+          <li>Integrated AI assistant for platform guidance and user support</li>
+        </ul>
+
+        <h3>Security Design</h3>
+        <ul>
+          <li>JWT authentication with route protection and role-based access</li>
+          <li>bcrypt password hashing with secure salt rounds</li>
+          <li>Two-factor OTP through email and SMS channels</li>
+          <li>KYC verification with admin approval controls</li>
+          <li>Rate limiting and activity logging for API and user action monitoring</li>
+        </ul>
+
+        <h3>Key User Workflows</h3>
+        <ul>
+          <li>Registration and secure login with tokenized sessions</li>
+          <li>Deposit and withdrawal with OTP channel selection and verification</li>
+          <li>KYC submission using upload/capture followed by admin validation</li>
+          <li>Live trading flow from market monitoring to execution and history update</li>
+        </ul>
+
+        <h3>Outcomes and Validation</h3>
+        <ul>
+          <li>All critical journeys manually tested and validated</li>
+          <li>Stable end-to-end behavior across core modules</li>
+          <li>More than 10 major features delivered with 7 trading modes</li>
+          <li>Authentication and protected flows validated across user actions</li>
+        </ul>
+
+        <h3>Challenges Addressed</h3>
+        <ul>
+          <li>Balanced realism and user safety through simulation-first architecture</li>
+          <li>Improved OTP flow quality with a cleaner two-step interaction model</li>
+          <li>Designed practical KYC governance with controlled admin approvals</li>
+        </ul>
+
+        <h3>Future Roadmap</h3>
+        <ul>
+          <li>Automated testing coverage: unit, integration, and end-to-end suites</li>
+          <li>Cloud-secured KYC document storage and improved data governance</li>
+          <li>Production hardening with SSL, WAF, and active monitoring</li>
+          <li>Next phase: wallet addresses and real blockchain settlement integration</li>
+        </ul>
+      </article>
+
+      <h2>Other Projects</h2>
+      <div class="project-grid">
+        <article class="card">
+          <h3>Secure Online Library Management System</h3>
+          <p>
+            A database-driven system built with Python and MySQL to manage books,
+            users, and role-based access in a secure environment.
+          </p>
+          <h4>Key Features</h4>
+          <ul>
+            <li>Secure user authentication</li>
+            <li>Book inventory and borrowing management</li>
+            <li>Role-based user permissions</li>
+            <li>Structured relational database integration</li>
+          </ul>
+        </article>
+        <article class="card">
+          <h3>Secure File Encryption Application</h3>
+          <p>
+            A Java-based console tool developed to protect local files with
+            encryption, authentication, and activity tracking.
+          </p>
+          <h4>Key Features</h4>
+          <ul>
+            <li>Secure login authentication</li>
+            <li>AES file encryption and decryption</li>
+            <li>File input/output management</li>
+            <li>Activity logging</li>
+            <li>Exception handling</li>
+          </ul>
+        </article>
+      </div>
+    </main>
+
+    <footer>
+      <p>&copy; 2026 sookun deevesh</p>
+      <p>All Rights Reserved</p>
+    </footer>
+    <script src="script.js"></script>
+  </body>
+</html>
