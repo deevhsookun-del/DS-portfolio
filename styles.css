@@ -41,6 +41,25 @@ a {
   color: inherit;
 }
 
+img {
+  max-width: 100%;
+}
+
+.image-link {
+  display: block;
+}
+
+.image-link img {
+  cursor: zoom-in;
+}
+
+a:focus-visible,
+button:focus-visible {
+  outline: 2px solid var(--accent-2);
+  outline-offset: 2px;
+  border-radius: 0.35rem;
+}
+
 .hero {
   position: relative;
   overflow: hidden;
@@ -49,6 +68,9 @@ a {
 }
 
 .subpage-header {
+  position: sticky;
+  top: 0;
+  z-index: 20;
   padding: 1.2rem 1.25rem;
   border-bottom: 1px solid rgba(50, 211, 255, 0.15);
   background: rgba(5, 9, 16, 0.9);
@@ -80,10 +102,29 @@ a {
 }
 
 .brand {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.55rem;
   text-decoration: none;
   font-size: 1.12rem;
   font-weight: 700;
   letter-spacing: 0.03em;
+}
+
+.brand::before {
+  content: "DS";
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 1.95rem;
+  height: 1.95rem;
+  border-radius: 50%;
+  font-size: 0.72rem;
+  font-weight: 800;
+  color: #04141d;
+  background: linear-gradient(135deg, var(--accent) 0%, var(--accent-2) 100%);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  box-shadow: 0 6px 16px rgba(50, 211, 255, 0.28);
 }
 
 .menu-toggle {
@@ -171,6 +212,43 @@ h1 {
   gap: 0.85rem;
 }
 
+.featured-skills {
+  margin-top: 1rem;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+
+.featured-skills span {
+  display: inline-flex;
+  align-items: center;
+  padding: 0.35rem 0.62rem;
+  border-radius: 999px;
+  border: 1px solid #315073;
+  background: rgba(13, 22, 38, 0.68);
+  color: #c9def6;
+  font-size: 0.86rem;
+  font-weight: 700;
+}
+
+.snapshot-card {
+  margin-top: 1rem;
+  max-width: 680px;
+  background: rgba(9, 16, 28, 0.76);
+  border: 1px solid #2a4263;
+  border-radius: 0.85rem;
+  padding: 0.85rem;
+}
+
+.snapshot-card h2 {
+  font-size: 1.02rem;
+  margin-bottom: 0.5rem;
+}
+
+.snapshot-card ul {
+  margin: 0;
+}
+
 .hero-photo-card {
   margin-top: 0.3rem;
   background: linear-gradient(180deg, rgba(16, 24, 38, 0.95) 0%, rgba(12, 19, 31, 0.95) 100%);
@@ -240,6 +318,10 @@ h1 {
   color: var(--muted);
 }
 
+.section > p {
+  max-width: 80ch;
+}
+
 .skills-grid,
 .project-grid {
   display: grid;
@@ -281,6 +363,23 @@ li {
 
 .meta {
   margin: 0.1rem 0;
+}
+
+.edu-facts {
+  margin: 0.65rem 0 0.9rem;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 0.45rem 0.9rem;
+  padding: 0.8rem;
+  border: 1px solid #2c4160;
+  border-radius: 0.8rem;
+  background: rgba(9, 16, 28, 0.72);
+}
+
+.edu-card h4 {
+  margin-top: 1.2rem;
+  margin-bottom: 0.45rem;
+  color: #d7e9ff;
 }
 
 .edu-media {
@@ -404,6 +503,10 @@ li {
   text-decoration: underline;
 }
 
+.text-link:focus-visible {
+  text-decoration: underline;
+}
+
 .quick-links {
   padding-top: 3rem;
 }
@@ -419,6 +522,29 @@ footer p {
   margin: 0.2rem 0;
 }
 
+.back-to-top {
+  position: fixed;
+  right: 1rem;
+  bottom: 1rem;
+  border: 1px solid #355277;
+  background: rgba(9, 16, 28, 0.9);
+  color: #d8ecff;
+  border-radius: 999px;
+  padding: 0.55rem 0.8rem;
+  font-size: 0.88rem;
+  font-weight: 700;
+  cursor: pointer;
+  box-shadow: 0 10px 22px rgba(0, 0, 0, 0.35);
+  z-index: 35;
+  display: none;
+}
+
+.back-to-top.show {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.3rem;
+}
+
 .reveal {
   opacity: 1;
   transform: none;
@@ -431,24 +557,56 @@ footer p {
 }
 
 @media (max-width: 960px) {
+  body.nav-open {
+    overflow: hidden;
+  }
+
+  .nav {
+    position: relative;
+  }
+
   .menu-toggle {
     display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 40px;
   }
 
   .nav-links {
     display: none;
-    position: absolute;
-    top: 2.9rem;
-    right: 0;
-    width: min(320px, 92vw);
-    padding: 0.9rem;
+    position: fixed;
+    top: 72px;
+    left: 1rem;
+    right: 1rem;
+    width: auto;
+    max-height: calc(100vh - 88px);
+    overflow-y: auto;
+    padding: 0.85rem;
     border: 1px solid var(--border);
     border-radius: 0.8rem;
-    background: rgba(8, 14, 24, 0.97);
+    background: rgba(8, 14, 24, 0.98);
+    box-shadow: 0 18px 38px rgba(0, 0, 0, 0.45);
+    z-index: 30;
+    gap: 0.45rem;
   }
 
   .nav-links.open {
     display: grid;
+  }
+
+  .nav-links li {
+    margin: 0;
+  }
+
+  .nav-links a {
+    display: block;
+    padding: 0.58rem 0.5rem;
+    border-radius: 0.45rem;
+  }
+
+  .nav-links .nav-cv-btn {
+    text-align: center;
+    padding: 0.58rem 0.75rem;
   }
 
   .hero-content {
@@ -461,6 +619,17 @@ footer p {
 
   .hero-photo-card {
     max-width: 420px;
+  }
+
+  .back-to-top {
+    bottom: 0.85rem;
+    right: 0.85rem;
+  }
+}
+
+@media (min-width: 961px) {
+  .back-to-top {
+    display: none !important;
   }
 }
 
@@ -629,8 +798,27 @@ footer p {
   box-shadow: var(--shadow);
 }
 
+.about-intro {
+  margin: 0.35rem 0 1rem;
+  max-width: 76ch;
+}
+
 .about-card + .about-card {
   margin-top: 1rem;
+}
+
+.section-kicker {
+  display: inline-flex;
+  margin: 0 0 0.5rem;
+  padding: 0.22rem 0.55rem;
+  border-radius: 999px;
+  font-size: 0.76rem;
+  font-weight: 800;
+  letter-spacing: 0.03em;
+  text-transform: uppercase;
+  color: #b7ebd8;
+  border: 1px solid rgba(110, 243, 197, 0.35);
+  background: rgba(110, 243, 197, 0.08);
 }
 
 .about-layout {
@@ -687,6 +875,76 @@ footer p {
   margin-top: 0.45rem;
   color: #a5b5cc;
   font-size: 0.88rem;
+}
+
+.hobby-chips {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin-top: 0.6rem;
+}
+
+.hobby-chips span {
+  display: inline-flex;
+  align-items: center;
+  padding: 0.28rem 0.6rem;
+  border-radius: 999px;
+  border: 1px solid #2f486a;
+  background: rgba(10, 17, 29, 0.76);
+  color: #c7d9ef;
+  font-size: 0.84rem;
+  font-weight: 700;
+}
+
+.hobby-block {
+  margin-top: 1.05rem;
+}
+
+.hobby-block h3 {
+  margin-bottom: 0.35rem;
+}
+
+.work-grid {
+  margin-top: 0.95rem;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(270px, 1fr));
+  gap: 0.85rem;
+}
+
+.work-card {
+  background: rgba(9, 15, 26, 0.78);
+  border: 1px solid #2a3f5d;
+  border-radius: 0.85rem;
+  padding: 0.75rem;
+}
+
+.work-image,
+.work-map {
+  width: 100%;
+  display: block;
+  border-radius: 0.7rem;
+  border: 1px solid #345074;
+  margin-bottom: 0.7rem;
+  aspect-ratio: 16 / 9;
+  object-fit: cover;
+}
+
+.work-map {
+  min-height: 190px;
+}
+
+.work-card h3 {
+  margin-bottom: 0.35rem;
+}
+
+.work-card p {
+  margin: 0 0 0.58rem;
+}
+
+@media (max-width: 860px) {
+  .work-grid {
+    grid-template-columns: 1fr;
+  }
 }
 
 @media (max-width: 860px) {
